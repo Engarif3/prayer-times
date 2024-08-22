@@ -11,6 +11,7 @@ export const typeDefs = `#graphql
     signUp(name: String!,
       email: String!,
       password: String!
+      bio: String
       ): AuthPayload,
 
     signIn(
