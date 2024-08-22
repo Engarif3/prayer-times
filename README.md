@@ -1,4 +1,4 @@
-# prayer-time
+# prayer-times Backend
 
 ## Technology Stack:
 
@@ -6,4 +6,3 @@
 - TypeScript
 - PostgresSQL
 - Prisma
-# prayer-times
