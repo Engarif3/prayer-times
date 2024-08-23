@@ -19,9 +19,10 @@ export const typeDefs = `#graphql
       password: String!
     ): AuthPayload,
 
-    addPrayer(prayer: PrayerInput!): PostPayload
-    updatePrayer(prayerId: ID!,prayer:PrayerInput): PostPayload
-    deletePrayer(prayerId: ID!):PostPayload
+    addPrayer(prayer: PrayerInput!): PrayerPayload
+    updatePrayer(prayerId: ID!,prayer:PrayerInput): PrayerPayload
+    deletePrayer(prayerId: ID!):PrayerPayload
+    publishPrayer(prayerId: ID!): PrayerPayload
   }
 
   type Prayer {
@@ -49,7 +50,7 @@ export const typeDefs = `#graphql
     user: User!
   }
 
-    type PostPayload{
+    type PrayerPayload{
     authError: String
     prayer: Prayer
 

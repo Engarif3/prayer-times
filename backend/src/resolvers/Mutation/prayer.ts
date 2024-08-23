@@ -92,4 +92,37 @@ export const prayerResolvers = {
       prayer: deletedPrayer,
     };
   },
+
+  publishPrayer: async (parent: any, args: any, { prisma, userInfo }: any) => {
+    if (!userInfo) {
+      return {
+        authError: "unauthorized access",
+        prayer: null,
+      };
+    }
+
+    const error = await checkUserPermission(
+      prisma,
+      userInfo.userId,
+      args.prayerId
+    );
+
+    if (error) {
+      return error;
+    }
+
+    const publishedPrayer = await prisma.prayer.update({
+      where: {
+        id: Number(args.prayerId),
+      },
+      data: {
+        published: true,
+      },
+    });
+
+    return {
+      authError: null,
+      prayer: publishedPrayer,
+    };
+  },
 };
