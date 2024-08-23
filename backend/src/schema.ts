@@ -18,18 +18,16 @@ export const typeDefs = `#graphql
       email: String!
       password: String!
     ): AuthPayload,
-  }
 
-  type AuthPayload {
-    authError: String,
-    token: String
+    addPrayer(prayer: PrayerInput!): PostPayload
+    updatePrayer(prayerId: ID!,prayer:PrayerInput): PostPayload
+    deletePrayer(prayerId: ID!):PostPayload
   }
 
   type Prayer {
     id: ID!
     title: String!
     prayerTime: String!
-    timeLeftForPrayer: String!
     author: User
     createdAt: String!
     published: Boolean!
@@ -49,5 +47,21 @@ export const typeDefs = `#graphql
     bio: String!
     createdAt: String!
     user: User!
+  }
+
+    type PostPayload{
+    authError: String
+    prayer: Prayer
+
+  }
+
+  type AuthPayload {
+    authError: String,
+    token: String
+  }
+
+  input PrayerInput {
+  title: String
+  prayerTime: String
   }
 `;

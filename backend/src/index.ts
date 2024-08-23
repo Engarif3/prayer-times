@@ -4,10 +4,14 @@ import { typeDefs } from "./schema";
 import { resolvers } from "./resolvers";
 import { PrismaClient, Prisma } from "@prisma/client";
 import { DefaultArgs } from "@prisma/client/runtime/library";
+import { jwtToken } from "./utils/jwtToken";
 const prisma = new PrismaClient();
 
 interface Context {
   prisma: PrismaClient<Prisma.PrismaClientOptions, never, DefaultArgs>;
+  userInfo: {
+    userId: number | null;
+  } | null;
 }
 
 const main = async () => {
@@ -18,9 +22,13 @@ const main = async () => {
 
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
-    context: async (): Promise<Context> => {
+    context: async ({ req }): Promise<Context> => {
+      const userInfo = await jwtToken.decodeToken(
+        req.headers.authorization as string
+      );
       return {
         prisma,
+        userInfo,
       };
     },
   });
