@@ -4,6 +4,7 @@ export const typeDefs = `#graphql
   userName: User
   users: [User]
   prayers:[Prayer]
+  profile(userId: ID!): Profile
 
   }
 
