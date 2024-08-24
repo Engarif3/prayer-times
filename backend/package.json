@@ -4,6 +4,7 @@
     "@prisma/client": "^5.18.0",
     "@types/node": "^22.5.0",
     "bcrypt": "^5.1.1",
+    "dataloader": "^2.2.2",
     "dotenv": "^16.4.5",
     "graphql": "^16.9.0",
     "jsonwebtoken": "^9.0.2",
@@ -12,7 +13,8 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "dev": "nodemon --watch './**/*.ts' --exec ts-node src/index.ts"
+    "devv:notworkingProperly": "nodemon --watch './**/*.ts' --exec ts-node src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
