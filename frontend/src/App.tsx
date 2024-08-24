@@ -96,7 +96,7 @@ function App() {
 
   return (
     <>
-      <div className="w-10/12 mx-auto my-8 border">
+      <div className="w-10/12 mx-auto my-8 border bg-gray-800 rounded-lg">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {sortedPrayers.map((prayer: PrayerData) => (
             <Prayer key={prayer.title} prayer={prayer} />
