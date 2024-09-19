@@ -121,7 +121,7 @@ function App() {
   const showFull = showFullText || window.innerWidth >= 768;
 
   return (
-    <div className="w-full md:w-10/12 mx-auto my-2 border bg-gray-800 rounded-lg">
+    <div className="sm:w-full md:w-10/12 lg:w-10/12  mx-auto my-2 border bg-gray-800 rounded-lg">
       <div className="my-4 p-4 text-white rounded-lg">
         <h2 className="text-xl font-bold mb-2 animate-bounce">
           Today's Hadith
@@ -179,7 +179,7 @@ function App() {
           <p>No Hadith found.</p>
         )}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
         {prayerTimes.map(({ title, times }) => (
           <div key={title} className="prayer-item">
             <Prayer title={title} times={times} />

@@ -124,7 +124,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
             </div>
             <div className="flex justify-around items-center gap-4 mt-2 p-2">
               <div className="w-6/12 ">
-                <h3 className="text-2xl font-semibold text-white  sm:mb-2 md:mb-4 lg:mb-4 ">
+                <h3 className="text-2xl font-semibold text-white sm:mb-0 md:mb-4 lg:mb-4 ">
                   Today
                 </h3>
                 {prayerTimesToday.length > 0 ? (
@@ -135,7 +135,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
                         minute: "2-digit",
                       })}
                       {/* Show remaining time if it applies to today */}
-                      <p className="mt-6">
+                      <p className="mt-6 h-12">
                         {" "}
                         {timeRemaining.isToday ? (
                           <span className="text-2xl font-bold text-orange-600">
@@ -154,10 +154,10 @@ const Prayer = ({ title, times }: PrayerProps) => {
                   <p>No prayer times today</p>
                 )}
               </div>
-              <div className="h-[100px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-pink-500 to-transparent opacity-75 dark:via-neutral-400"></div>
+              <div className="h-[100px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-pink-600 to-transparent dark:via-neutral-400"></div>
 
               <div className="w-6/12">
-                <h3 className="text-2xl font-semibold text-white sm:mb-2 md:mb-4 lg:mb-4">
+                <h3 className="text-2xl font-semibold text-white sm:mb-0 md:mb-4 lg:mb-4">
                   Tomorrow
                 </h3>
                 {prayerTimesTomorrow.length > 0 ? (
@@ -168,7 +168,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
                         minute: "2-digit",
                       })}
                       {/* Show remaining time if it applies to tomorrow */}
-                      <p className="mt-6">
+                      <p className="mt-6 h-12">
                         {!timeRemaining.isToday ? (
                           <span className="text-2xl font-bold text-orange-700">
                             {" "}
