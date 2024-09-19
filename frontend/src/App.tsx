@@ -7,6 +7,16 @@ export interface PrayerData {
   prayerTime: string;
 }
 
+interface HadithData {
+  book: string;
+  bookName: string;
+  chapterName: string;
+  hadith_english: string;
+  header: string;
+  id: number;
+  refno: string;
+}
+
 const prayerSequence = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha", "Jumu'ah"];
 
 const formatDate = (date: Date): string => {
@@ -49,6 +59,22 @@ const mergePrayerTimes = (times1: PrayerData[], times2: PrayerData[]) => {
   }));
 };
 
+// fetch random hadith
+const fetchRandomHadith = async (): Promise<HadithData | null> => {
+  const randomId = Math.floor(Math.random() * 7563) + 1;
+  try {
+    const response = await fetch(
+      `https://random-hadith-generator.vercel.app/bukhari/${randomId}`
+    );
+    const result = await response.json();
+    console.log(result); // Log the response to inspect its structure
+    return result.data; // Return the whole data object to access fields later
+  } catch (err) {
+    console.error("Failed to load Hadith.", err);
+    return null;
+  }
+};
+
 function App() {
   const [prayerTimes, setPrayerTimes] = useState<
     {
@@ -57,6 +83,7 @@ function App() {
     }[]
   >([]);
   const [loading, setLoading] = useState(true);
+  const [hadith, setHadith] = useState<HadithData | null>(null);
   const [error] = useState<string | null>(null);
 
   useEffect(() => {
@@ -72,13 +99,64 @@ function App() {
     };
 
     fetchTimes();
+
+    // Fetch random Hadith
+    const fetchHadith = async () => {
+      const randomHadith = await fetchRandomHadith();
+      if (randomHadith) {
+        setHadith(randomHadith); // Store the entire Hadith object
+      }
+    };
+
+    fetchHadith();
   }, []);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="w-10/12 mx-auto my-8 border bg-gray-800 rounded-lg">
+    <div className="w-10/12 mx-auto my-2 border bg-gray-800 rounded-lg">
+      <div className="my-4 p-4 text-white rounded-lg">
+        <h2 className="text-xl font-bold mb-2 animate-bounce">
+          Today's Hadith
+        </h2>
+        {hadith ? (
+          <div>
+            <p className="text-pink-600 font-bold">
+              {hadith.header
+                ? hadith.header.replace("\nNarrated", "").replace(/:$/, "")
+                : ""}{" "}
+              narrated:
+            </p>
+
+            <p className="italic">"{hadith.hadith_english}</p>
+
+            <p className="text-green-600 font-bold mt-2">
+              {hadith.refno ? (
+                <>
+                  {(() => {
+                    const match = hadith.refno.match(/(.*)\s(\d+)$/);
+                    if (match) {
+                      return (
+                        <>
+                          {match[1]}{" "}
+                          <span style={{ color: "yellow" }}>{match[2]}</span>
+                        </>
+                      );
+                    } else {
+                      return hadith.refno;
+                    }
+                  })()}
+                </>
+              ) : (
+                "No Reference"
+              )}
+            </p>
+          </div>
+        ) : (
+          <p>No Hadith found.</p>
+        )}
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {prayerTimes.map(({ title, times }) => (
           <div key={title} className="prayer-item">

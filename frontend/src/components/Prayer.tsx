@@ -1,4 +1,9 @@
+// https://pixabay.com/images/search/mosque/?pagi=3
+// https://random-hadith-generator.vercel.app/
+// https://documenter.getpostman.com/view/5211979/TVev3j7q#intro   (2932-3162)
 import { useEffect, useMemo, useState } from "react";
+import Asr from "../assets/asr.jpg";
+import Maghrib from "../assets/magrib.webp";
 
 interface PrayerProps {
   title: string;
@@ -8,10 +13,11 @@ interface PrayerProps {
 const Fajr = "https://farm3.staticflickr.com/2940/14111317317_1638c4916b_c.jpg";
 const Dhuhr =
   "https://www.agoda.com/wp-content/uploads/2019/06/shutterstock_721552321-1024x683.jpg";
-const Asr =
-  "https://img.freepik.com/free-photo/majestic-mosque-islamic-new-year-celebration-with-fantasy-architecture_23-2151457483.jpg?t=st=1724513028~exp=1724516628~hmac=3037f72cbaadeda483c54d1744fb1ee2a28030b752d3609c71f99784feda29bd&w=1380";
-const Maghrib =
-  "https://img.freepik.com/free-photo/majestic-mosque-islamic-new-year-celebration-with-fantasy-architecture_23-2151457458.jpg?t=st=1724512989~exp=1724516589~hmac=8b21dfd0e75ec7f6a91a4c5a1785fc476636a6222bcbe8343ecbfb43b056cb1d&w=1380";
+// const Asr =
+//   "https://cdn.pixabay.com/photo/2023/10/20/03/19/mosque-8328077_1280.jpg";
+// const Maghrib =
+//   "https://pixabay.com/photos/travel-tourism-abu-dhabi-mosque-4604499/";
+// "https://img.freepik.com/free-photo/majestic-mosque-islamic-new-year-celebration-with-fantasy-architecture_23-2151457458.jpg?t=st=1724512989~exp=1724516589~hmac=8b21dfd0e75ec7f6a91a4c5a1785fc476636a6222bcbe8343ecbfb43b056cb1d&w=1380";
 const Isha =
   "https://www.housingdiversitynetwork.co.uk/wp-content/uploads/crescent-shaped-moon-mosque-front-night-cloudy-starry-sky-ramadan-2048x1367.jpg";
 const DefaultImage =
@@ -123,7 +129,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
                 </h3>
                 {prayerTimesToday.length > 0 ? (
                   prayerTimesToday.map((date, index) => (
-                    <p key={index} className="text-2xl text-yellow-300">
+                    <p key={index} className="text-2xl text-[#FFFF00]">
                       {date.toLocaleTimeString("en-GB", {
                         hour: "2-digit",
                         minute: "2-digit",
@@ -156,7 +162,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
                 </h3>
                 {prayerTimesTomorrow.length > 0 ? (
                   prayerTimesTomorrow.map((date, index) => (
-                    <p key={index} className="text-2xl text-yellow-300">
+                    <p key={index} className="text-2xl text-[#FFFF00]">
                       {date.toLocaleTimeString("en-GB", {
                         hour: "2-digit",
                         minute: "2-digit",
