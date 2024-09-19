@@ -101,7 +101,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
   return (
     <div className="m-auto text-center w-full">
       <div className="m-auto w-full p-4">
-        <div className="card glass border-2 border-red-600 bg-blue-800">
+        <div className="card glass border-2 border-red-600 bg-cyan-800">
           <figure>
             <img
               className="object-cover w-full h-56"
@@ -110,53 +110,71 @@ const Prayer = ({ title, times }: PrayerProps) => {
             />
           </figure>
           <div className="pt-0 mt-0 pb-4 w-full">
-            <div className="flex justify-between items-end gap-4 bg-slate-700 p-2">
-              <p className="text-3xl font-bold text-white">{title}</p>
+            <div className="flex justify-between items-center gap-4 bg-slate-700 px-4">
+              <p className="text-3xl font-bold text-pink-600">{title}</p>
               <p className="text-xl text-pink-600">
                 {today.toLocaleDateString("en-GB")}
               </p>
             </div>
-            <div className="flex justify-around items-end gap-4 mt-4">
-              <div>
-                <h3 className="text-xl font-semibold">Today:</h3>
+            <div className="flex justify-around items-center gap-4 mt-2 p-2">
+              <div className="w-6/12 ">
+                <h3 className="text-2xl font-semibold text-white mb-4 ">
+                  Today
+                </h3>
                 {prayerTimesToday.length > 0 ? (
                   prayerTimesToday.map((date, index) => (
-                    <p key={index}>
+                    <p key={index} className="text-2xl text-yellow-300">
                       {date.toLocaleTimeString("en-GB", {
                         hour: "2-digit",
                         minute: "2-digit",
                       })}
                       {/* Show remaining time if it applies to today */}
-                      {timeRemaining.isToday && (
-                        <span>
-                          {" "}
-                          - Remaining Time: {timeRemaining.hours}h{" "}
-                          {timeRemaining.minutes}m {timeRemaining.seconds}s
-                        </span>
-                      )}
+                      <p className="mt-6">
+                        {" "}
+                        {timeRemaining.isToday ? (
+                          <span className="text-2xl font-bold text-orange-600">
+                            {timeRemaining.hours}h {timeRemaining.minutes}m{" "}
+                            {timeRemaining.seconds}s
+                          </span>
+                        ) : (
+                          <p className="text-lime-500 text-xl">
+                            Time already passed
+                          </p>
+                        )}
+                      </p>
                     </p>
                   ))
                 ) : (
                   <p>No prayer times today</p>
                 )}
               </div>
-              <div>
-                <h3 className="text-xl font-semibold">Tomorrow:</h3>
+              <div className="h-[100px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-pink-500 to-transparent opacity-75 dark:via-neutral-400"></div>
+
+              <div className="w-6/12">
+                <h3 className="text-2xl font-semibold text-white mb-4">
+                  Tomorrow
+                </h3>
                 {prayerTimesTomorrow.length > 0 ? (
                   prayerTimesTomorrow.map((date, index) => (
-                    <p key={index}>
+                    <p key={index} className="text-2xl text-yellow-300">
                       {date.toLocaleTimeString("en-GB", {
                         hour: "2-digit",
                         minute: "2-digit",
                       })}
                       {/* Show remaining time if it applies to tomorrow */}
-                      {!timeRemaining.isToday && (
-                        <span>
-                          {" "}
-                          - Remaining Time: {timeRemaining.hours}h{" "}
-                          {timeRemaining.minutes}m {timeRemaining.seconds}s
-                        </span>
-                      )}
+                      <p className="mt-6">
+                        {!timeRemaining.isToday ? (
+                          <span className="text-2xl font-bold text-orange-700">
+                            {" "}
+                            {timeRemaining.hours}h {timeRemaining.minutes}m{" "}
+                            {timeRemaining.seconds}s
+                          </span>
+                        ) : (
+                          <p className="text-lime-500 text-xl">
+                            Prayer for the next day
+                          </p>
+                        )}
+                      </p>
                     </p>
                   ))
                 ) : (
