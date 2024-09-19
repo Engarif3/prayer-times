@@ -5,8 +5,7 @@ export const typeDefs = `#graphql
   users: [User]
   prayers:[Prayer]
   profile(userId: ID!): Profile
-
-  }
+}
 
   type Mutation {
     signUp(name: String!,
