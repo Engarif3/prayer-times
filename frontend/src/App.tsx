@@ -131,7 +131,7 @@ function App() {
             <p className="text-pink-600 font-bold">
               {hadith.header
                 ? hadith.header.replace("\nNarrated", "").replace(/:$/, "")
-                : ""}{" "}
+                : "Narrator name missing"}{" "}
               narrated:
             </p>
 
