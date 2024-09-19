@@ -67,8 +67,7 @@ const fetchRandomHadith = async (): Promise<HadithData | null> => {
       `https://random-hadith-generator.vercel.app/bukhari/${randomId}`
     );
     const result = await response.json();
-    console.log(result); // Log the response to inspect its structure
-    return result.data; // Return the whole data object to access fields later
+    return result.data;
   } catch (err) {
     console.error("Failed to load Hadith.", err);
     return null;
@@ -84,6 +83,7 @@ function App() {
   >([]);
   const [loading, setLoading] = useState(true);
   const [hadith, setHadith] = useState<HadithData | null>(null);
+  const [showFullText, setShowFullText] = useState(false);
   const [error] = useState<string | null>(null);
 
   useEffect(() => {
@@ -114,6 +114,12 @@ function App() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
+  const hadithText = hadith?.hadith_english || "";
+  const words = hadithText.split(" ");
+  const isLongHadith = words.length > 30;
+  const truncatedHadith = words.slice(0, 50).join(" ");
+  const showFull = showFullText || window.innerWidth >= 768;
+
   return (
     <div className="w-full md:w-10/12 mx-auto my-2 border bg-gray-800 rounded-lg">
       <div className="my-4 p-4 text-white rounded-lg">
@@ -129,7 +135,23 @@ function App() {
               narrated:
             </p>
 
-            <p className="italic">"{hadith.hadith_english}</p>
+            {/* <p className="italic ">"{hadith.hadith_english}</p> */}
+
+            <p className="italic w-full">
+              {showFull || !isLongHadith
+                ? hadithText
+                : `${truncatedHadith}${
+                    truncatedHadith.length < hadithText.length ? "..." : ""
+                  }`}
+            </p>
+            {isLongHadith && window.innerWidth < 768 && (
+              <button
+                className="mt-2 text-blue-400 hover:underline"
+                onClick={() => setShowFullText(!showFullText)}
+              >
+                {showFullText ? "Show less" : "Show full"}
+              </button>
+            )}
 
             <p className="text-green-600 font-bold mt-2">
               {hadith.refno ? (
