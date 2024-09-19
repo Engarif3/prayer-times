@@ -115,7 +115,7 @@ function App() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="w-10/12 mx-auto my-2 border bg-gray-800 rounded-lg">
+    <div className="w-full md:w-10/12 mx-auto my-2 border bg-gray-800 rounded-lg">
       <div className="my-4 p-4 text-white rounded-lg">
         <h2 className="text-xl font-bold mb-2 animate-bounce">
           Today's Hadith
