@@ -179,7 +179,7 @@ function App() {
           <p>No Hadith found.</p>
         )}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
         {prayerTimes.map(({ title, times }) => (
           <div key={title} className="prayer-item">
             <Prayer title={title} times={times} />

@@ -124,7 +124,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
             </div>
             <div className="flex justify-around items-center gap-4 mt-2 p-2">
               <div className="w-6/12 ">
-                <h3 className="text-2xl font-semibold text-white mb-4 ">
+                <h3 className="text-2xl font-semibold text-white  sm:mb-2 md:mb-4 lg:mb-4 ">
                   Today
                 </h3>
                 {prayerTimesToday.length > 0 ? (
@@ -143,7 +143,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
                             {timeRemaining.seconds}s
                           </span>
                         ) : (
-                          <p className="text-lime-500 text-xl">
+                          <p className="text-lime-500 text-sm md:text-xl lg:text-xl">
                             Time already passed
                           </p>
                         )}
@@ -157,7 +157,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
               <div className="h-[100px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-pink-500 to-transparent opacity-75 dark:via-neutral-400"></div>
 
               <div className="w-6/12">
-                <h3 className="text-2xl font-semibold text-white mb-4">
+                <h3 className="text-2xl font-semibold text-white sm:mb-2 md:mb-4 lg:mb-4">
                   Tomorrow
                 </h3>
                 {prayerTimesTomorrow.length > 0 ? (
@@ -176,7 +176,7 @@ const Prayer = ({ title, times }: PrayerProps) => {
                             {timeRemaining.seconds}s
                           </span>
                         ) : (
-                          <p className="text-lime-500 text-xl">
+                          <p className="text-lime-500 text-sm md:text-xl lg:text-xl">
                             Prayer for the next day
                           </p>
                         )}
