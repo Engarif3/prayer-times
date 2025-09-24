@@ -8,11 +8,11 @@ The Prayer Times Backend is a robust API built with GraphQL, TypeScript, Postgre
 
 ### GraphQL API:
 
-Provides queries to retrieve prayer times for specific locations and dates.
+  - Provides queries to retrieve prayer times for specific locations and dates.
 
-Supports mutations for adding or updating prayer time records.
+  - Supports mutations for adding or updating prayer time records.
 
-Offers flexible filtering and sorting options for clients.
+  - Offers flexible filtering and sorting options for clients.
 
 ## Technology Stack:
 
