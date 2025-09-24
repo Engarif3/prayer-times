@@ -14,6 +14,13 @@ The Prayer Times Backend is a robust API built with GraphQL, TypeScript, Postgre
 
   - Offers flexible filtering and sorting options for clients.
 
+
+### Type Safety:
+
+ - Built with TypeScript for type safety and robust application logic.
+
+ - Ensures consistent data structures between database and API.
+
 ## Technology Stack:
 
 - GraphQL
