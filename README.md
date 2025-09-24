@@ -1,4 +1,4 @@
-# Prayer Times Backend
+# Prayer Times
 
 ## Technology Stack:
 
