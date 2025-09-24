@@ -105,4 +105,4 @@ For any inquiries or issues, feel free to reach out:
 
 #### Click below for the project live link:
 
-[Project Live Link](https://prayer-times-psi.vercel.app/) 
+[Prayer Times](https://prayer-times-psi.vercel.app/) 
