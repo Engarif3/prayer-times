@@ -36,13 +36,13 @@ The Prayer Times Backend is a robust API built with GraphQL, TypeScript, Postgre
 
 ### Technologies Used
 
- - GraphQL: API query language for efficient and flexible data fetching.
+ - **GraphQL**: API query language for efficient and flexible data fetching.
 
- - TypeScript: Provides type safety and better code maintainability.
+ - **TypeScript**: Provides type safety and better code maintainability.
 
- - PostgreSQL: Relational database for storing prayer times securely.
+ - **PostgreSQL**: Relational database for storing prayer times securely.
 
- - Prisma: ORM for database schema management and simplified queries.
+ - **Prisma**: ORM for database schema management and simplified queries.
 
 ## Getting Started for Backend
 
