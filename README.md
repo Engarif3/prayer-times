@@ -56,12 +56,24 @@ cd <repo-folder>
 npm install
 ```
 
-**3. Start the frontend development server:**
+**3. Configure the environment:**
+  - Create a .env file with your PostgreSQL connection details.
+  - Example:
+```bash
+DATABASE_URL=postgresql://user:password@localhost:5432/prayertimes
+```
+
+**4. Run database migrations:**
+```bash
+npx prisma migrate dev
+```
+
+**4. Start the development server:**
 ```bash
 npm run dev
 ```
 
-**4. Access the frontend locally:**
+**5. Access the frontend locally:**
     http://localhost:5137
 
 ## 📞 Contact
@@ -71,6 +83,6 @@ For any inquiries or issues, feel free to reach out:
 - **Email:** [arif.aust.eng@gmail.com](mailto:arif.aust.eng@gmail.com)
 - **LinkedIn:** [Md. Arifur Rahman](https://www.linkedin.com/in/engarif3/)
 
-<!-- #### Click below for the project live link:
+#### Click below for the project live link:
 
-[Project Live Link](https://the-language-club.web.app) -->
+[Project Live Link](https://prayer-times-psi.vercel.app/) 
