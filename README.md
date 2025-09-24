@@ -68,12 +68,12 @@ DATABASE_URL=postgresql://user:password@localhost:5432/prayertimes
 npx prisma migrate dev
 ```
 
-**4. Start the development server:**
+**5. Start the development server:**
 ```bash
 npm run dev
 ```
 
-**5. Access the backend locally:**
+**6. Access the backend locally:**
     http://localhost:4000
 
 ## Getting Started for Frontend
