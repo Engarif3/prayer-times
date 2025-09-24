@@ -44,7 +44,7 @@ The Prayer Times Backend is a robust API built with GraphQL, TypeScript, Postgre
 
  - Prisma: ORM for database schema management and simplified queries.
 
-## Getting Started
+## Getting Started for Backend
 
 **1. Clone the frontend repository:**
 ```bash
@@ -73,7 +73,27 @@ npx prisma migrate dev
 npm run dev
 ```
 
-**5. Access the frontend locally:**
+**5. Access the backend locally:**
+    http://localhost:4000
+
+## Getting Started for Frontend
+
+**1. Clone the frontend repository:**
+```bash
+git clone <Repo URL>
+cd <repo-folder>
+```
+**2. Install dependencies:**
+```bash
+npm install
+```
+
+**3. Start the development server:**
+```bash
+npm run dev
+```
+
+**4. Access the frontend locally:**
     http://localhost:5137
 
 ## 📞 Contact
