@@ -1,10 +1,12 @@
 # Prayer Times
 
-## Overview
+The Prayer Times project is a full-stack application that provides accurate and up-to-date prayer times for users. 
 
-The Prayer Times Backend is a robust API built with GraphQL, TypeScript, PostgreSQL, and Prisma. This backend provides accurate and up-to-date prayer times data to clients or frontend applications, supporting seamless integration via GraphQL queries and mutations. It is designed with scalability and maintainability in mind, enabling developers to easily fetch, filter, and manage prayer times.
+The **backend** is built with **GraphQL**, **TypeScript**, **PostgreSQL**, and **Prisma**, offering a robust API that allows clients or frontend applications to fetch, filter, and manage prayer times efficiently. It is designed for scalability, type safety, and maintainability, supporting flexible GraphQL queries and mutations.  
 
-## Features
+The **frontend** is built with **React.js**, **TypeScript**, **Vite**, **Tailwind CSS**, and **DaisyUI**, providing a responsive and modern user interface. It integrates seamlessly with the backend using **Apollo Client** for GraphQL queries and **Axios** for additional HTTP requests, giving users a smooth and interactive experience to view prayer times for their location.
+
+## Features of Backend
 
 ### GraphQL API:
 
@@ -43,6 +45,25 @@ The Prayer Times Backend is a robust API built with GraphQL, TypeScript, Postgre
  - **PostgreSQL**: Relational database for storing prayer times securely.
 
  - **Prisma**: ORM for database schema management and simplified queries.
+
+
+## Features of Frontend
+
+- **View Prayer Times:** Users can fetch and view prayer times for specific locations.
+- **Responsive Design:** Tailwind CSS ensures a mobile-first and responsive layout.
+- **GraphQL Integration:** Apollo Client handles queries and caching efficiently.
+- **API Communication:** Axios is used for flexible HTTP requests to the backend if needed.
+- **Modern Frontend Stack:** React.js + TypeScript for type-safe development.
+
+## Technologies Used
+
+- **React.js** – Frontend library for building dynamic user interfaces.
+- **TypeScript** – Provides type safety and better maintainability.
+- **Vite** – Development and build tool for fast bundling.
+- **Tailwind CSS** – Utility-first CSS framework for responsive styling.
+- **DaisyUI** – Component library for Tailwind CSS to simplify UI design.
+- **Apollo Client** – GraphQL client for fetching data from the backend.
+- **Axios** – HTTP client for RESTful API requests.
 
 ## Getting Started for Backend
 
